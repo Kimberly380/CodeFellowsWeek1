@@ -1,46 +1,48 @@
 
-/*var userName = prompt('What is your name?');
-console.log('Meow Meow Meow ' + userName + '!!!!');
+//get to know user and send personalized message
+var userName = prompt("Hi. Welcome to my site! What's your name?");
+console.log("User name is " + userName);
+document.getElementById("userName").innerText="Hi "+userName +"! Welcome to my site!";
 
-console.log('userGame before prompt: ', userGame);
-var userGame = prompt('What is your game?');
-console.log('userGame after prompt: ', userGame);
-alert('So, ' + userName + ', I heard you like ' + userGame);
+var readyToPlay = prompt("Hi " + userName + "!  Are you ready to play a Guessing Game (Y/N)?")
+//var readyToPlayElement = document.getElementById("readyToPlay");
 
-var loveHate = confirm(userName + ' do you love interweb?');
-alert('Does, ' + userName + ' love interweb? ' + loveHate
+//introduce game and begin to display info on site if users initializes
+if (readyToPlay.toUpperCase() === "Y" || "YES") {
+    console.log(userName + " is ready to play.");
+    document.getElementById("readyToPlay").textContent="Great! Let's Play!";
+    document.getElementById("moreAboutMe").textContent="Here's some stuff about me..."
+  } else {
+    console.log(userName + " refuses to play.");
+    readyToPlayElement.textContent="Oh well, I guess you'll never know who I am.  Have a nice day!";
+  }
+
+//ask first question and print answer results.
+var questionOne = prompt("First Question: Am I originally from Portland?");
+//var questionOneElement = document.getElementById("questionOne")
+
+if (questionOne.toUpperCase() === "Y" || "YES") {
+  console.log('userName ' + "incorrectly said yes.");
+  alert("No, sorry that's incorrect. Let's move on.");
+  document.getElementById("questionOne").textContent="I am originally from Atlanta, but have lived in New York, Madrid and 6 years in Portland."
+} else {
+  console.log('userName ' + "correctly said no.");
+  alert("Yes, that's correct! I am not from Portland.");
+}
+
+var questionTwo = prompt("Second Question: Do I love chocolate?");
+//var questionOneElement = document.getElementById("questionOne")
+
+if (questionTwo.toUpperCase() === "Y" || "YES") {
+  console.log('userName ' + "incorrectly said yes.");
+  alert("Crazy as it sounds, that's incorrect. I actually don't like chocoloate. Ok, one more question.");
+} else {
+  console.log('userName ' + "correctly said no.");
+  alert("That's correct! Can you believe it? No one in my family likes chocolate. Weird genes I guess.");
+}
 
 
-); */
 
-
-var askName = prompt("Hi MadLib fanatic! What's your name?");
-console.log("Hi " + askName);
-document.getElementById("askName").innerText=askName;
-
-var readyToPlay = prompt("Hi " + askName + "!  Are you ready to play Madlibs Online?")
-document.getElementById("readyToPlay").innerText=readyToPlay;
-
-var adj1 = prompt("Ok, let's go!  First, think of an adjective and type it here:");
-console.log('Your adjective is ' + adj1 + '.');
-document.getElementById("adj1").innerText=adj1;
-
-var noun1 = prompt('Now think of a noun and type it here: ');
-console.log('Your noun is ' + noun1 + '.');
-document.getElementById("noun1").innerText=noun1;
-
-var animalNoise = prompt("Now enter a noise an animal makes like 'oink' or 'meow'.");
-console.log("Ha Ha" +animalNoise +" is silly!");
-document.getElementById("animalNoise").innerText=animalNoise
-
-var noun2 =prompt("And finally, enter one more noun, different than the first one.");
-console.log(noun2 + " is perfect! Thanks!");
-document.getElementById("noun2").innerText=noun2;
-
-var readyForResults = prompt("Are you ready for your MadLib results (Y/N)?");
-document.getElementById("readyForResults").innerText=readyForResults;
-
-var finalMadlib = "Ladies and Gentlemen, here's " +askName +"'s Madlib:  \n \n " + adj1 + " McDonald had a " + noun1 + ". \n E I E I O! \n And on that " +noun1 + " he had a " + noun2 + ". \n E I E I O. \n With a " + animalNoise + " here, \n and a "+ animalNoise + " there. \n Here a " +animalNoise + ". \n There a " +animalNoise + ". \n Everywhere a " + animalNoise + " " +animalNoise +". \n " + adj1 +" McDonald had a " + noun1 + ". \n E I E I O."
-document.getElementById("finalMadlib").innerText=finalMadlib;
+var finalAboutMe = "Now the truth about me...";
 
 console.log(finalMadlib);
