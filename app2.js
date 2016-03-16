@@ -57,29 +57,28 @@ if (readyToPlay.toUpperCase() === "N" || readyToPlay.toUpperCase() ==="NO") {
 
 */
           var myNum = 2;
-          var guessNumber = function() {
-              prompt("Guess my favorite number between 1 and 10");
+          var keepRunning = true;
+
+          while (keepRunning) {
+              var guessNumber = parseInt(prompt("Guess my favorite number between 1 and 10"));
+              if(guessNumber === myNum){
+                  alert("Yay! You got it!");
+                  keepRunning = false;
+                  break;
                 }
-
-
-          while (parseInt(guessNumber()) != myNum) {
-              if(parseInt(guessNumber()) > myNum){
-                alert("Sorry, too high! Guess again.");
-                guessNumber();
-              } else {
-                alert("Sorry, too low! Guess again.");
-                guessNumber();
-              }
-
+                  else if (guessNumber > myNum) {
+                  alert("Sorry, too high! Guess again.");
+                } else if (guessNumber < myNum) {
+                  alert("Sorry, too low! Guess again.");
+                } else {
+                  alert("Oops, that's not a number between 1 and 10");
+                  }
             }
 
-            alert("yes! you got it!");
+
 /*
           }
 
 
         }
 */
-
-
-var finalAboutMe = "Now the truth about me...";
