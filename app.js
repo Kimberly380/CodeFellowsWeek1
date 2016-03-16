@@ -11,10 +11,13 @@ alert('So, ' + userName + ', I heard you like ' + userGame);
 
 var loveHate = confirm(userName + ' do you love interweb?');
 alert('Does, ' + userName + ' love interweb? ' + loveHate);
-*/
+
 
 
 var userName = prompt("Hello new Code Fellows' student.  What's your name?");
+name.textcontent = "Hello " + userName + "!"
+;
+console.log ("Hello " + userName + "!");
 
 var intro = prompt("Hi, "+userName + ".  Welcome to Code Fellows.  We're conducting\
  a survey on how well new students understand Git.  Would you like to\
