@@ -79,7 +79,7 @@ if (readyToPlay.toUpperCase() === "N" || readyToPlay.toUpperCase() ==="NO") {
             userAnswer = true; //fourth question.  exception testing for non yes/no answers.
 
             while (userAnswer) {
-                  question = prompt("Here's the fourth question (and MOST important\) question: Are you having fun?");
+                  question = prompt("Here's the fourth (and MOST important\) question: Are you having fun?");
                         if (question.toUpperCase() === "Y" || question.toUpperCase() ==="YES") {
                             console.log('userName ' + "correctly said yes.");
                             alert("I'm so glad to hear it! Just two more question to go...");
@@ -97,13 +97,17 @@ if (readyToPlay.toUpperCase() === "N" || readyToPlay.toUpperCase() ==="NO") {
                   }
 
 
-          var myNum = 2;    //fourth question.  keep guessing until they get it right.
+          var myNum = 3;    //fourth question.  keep guessing until they get it right.
           var keepRunning = true;
+          var guessNumber
           var guessCounter = 0  //limit them to 3 guesses (known bug.  need to fix three-guess functionality.)
 
-          while (keepRunning && guessCounter < 3) {
-              var guessNumber = parseInt(prompt("Guess my favorite number between 1 and 10"));
-              if(guessNumber === myNum){
+          while (keepRunning && guessCounter < 4 ) {
+              guessNumber = parseInt(prompt("Guess my favorite number between 1 and 100"));
+              if (isNaN(guessNumber)){
+                guessCounter +=1;
+                alert("Don't be cheeky! This is a NUMBER guessing game. Input a NUMBER, 1 to 100.");
+              } else if (guessNumber === myNum){
                   alert("Yay! You got it!");
                   correctAnswerCounter +=1;
                   keepRunning = false;
@@ -119,8 +123,8 @@ if (readyToPlay.toUpperCase() === "N" || readyToPlay.toUpperCase() ==="NO") {
                   alert("Oops, that's not a number between 1 and 10");
                   }
               console.log("number of guess " + guessCounter);
-              if (guessCounter === 3){
-                alert("Sorry. That was three guesses. We have to move on.");
+              if (guessCounter === 4){
+                alert("I'm afraid you reached your fourth guess. We have to move on.");
               }
             }
 
@@ -165,7 +169,7 @@ if (readyToPlay.toUpperCase() === "N" || readyToPlay.toUpperCase() ==="NO") {
                   }
                 }
 
-          var finalMessage = "You got " + correctAnswerCounter + " correct out of 6. " +finalCounter() ;
+          var finalMessage = userName + ", you got " + correctAnswerCounter + " correct out of 6. " +finalCounter() ;
             //the "out of 5" can be a variable counting array.length, once questions are set up in for loop.
 
             alert(finalMessage);
