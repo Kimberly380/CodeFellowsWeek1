@@ -78,9 +78,9 @@ if (readyToPlay.toUpperCase() === "N" || readyToPlay.toUpperCase() ==="NO") {
 
           var myNum = 2;    //fourth question.  keep guessing until they get it right.
           var keepRunning = true;
-          var guessCounter = 0  //limit them to 3 guesses (known bug.  need to fix three guess functionality.)
+          var guessCounter = 0  //limit them to 3 guesses (known bug.  need to fix three-guess functionality.)
 
-          while (keepRunning && guessCounter < 4) {
+          while (keepRunning && guessCounter < 3) {
               var guessNumber = parseInt(prompt("Guess my favorite number between 1 and 10"));
               if(guessNumber === myNum){
                   alert("Yay! You got it!");
@@ -97,9 +97,10 @@ if (readyToPlay.toUpperCase() === "N" || readyToPlay.toUpperCase() ==="NO") {
                 } else {
                   alert("Oops, that's not a number between 1 and 10");
                   }
-              console.log(guessCounter);
-              alert("Sorry. That was three guesses. We have to move on.");
-              break;
+              console.log("number of guess " + guessCounter);
+              if (guessCounter === 3){
+                alert("Sorry. That was three guesses. We have to move on.");
+              }
             }
 
 
