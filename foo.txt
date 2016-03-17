@@ -1,3 +1,0 @@
-hello world! I am foo.txt
-yay!
-here's a change to check the push...
