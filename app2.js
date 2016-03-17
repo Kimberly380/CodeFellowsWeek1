@@ -36,7 +36,7 @@ if (readyToPlay.toUpperCase() === "N" || readyToPlay.toUpperCase() ==="NO") {
                         }
                 }
 
-          userAnswer = true;  //secong question.  exception testing for non yes/no answers.
+          userAnswer = true;  //second question.  exception testing for non yes/no answers.
 
           while (userAnswer) {
                 question = prompt("Do I love chocolate?");
@@ -56,18 +56,18 @@ if (readyToPlay.toUpperCase() === "N" || readyToPlay.toUpperCase() ==="NO") {
                         }
                 }
 
-              userAnswer = true; //third question.  exception testing for non yes/no answers.
+          userAnswer = true; //third question.  exception testing for non yes/no answers.
 
           while (userAnswer) {
                 question = prompt("Third Question: Can I run a 6 minute mile?");
                       if (question.toUpperCase() === "Y" || question.toUpperCase() ==="YES") {
                           console.log('userName ' + "incorrectly said yes.");
-                          alert("Of course I can't! Dont be silly! Just two more question to go...");
+                          alert("Of course I can't! Dont be silly!");
                           userAnswer = false;
                           break;
                         } else if (question.toUpperCase() ==="N" || question.toUpperCase() ==="NO"){
                           console.log('userName ' + "correctly said no.");
-                          alert("Of course I can't...you know me well.");
+                          alert("Of course I can't...you know me well!");
                           correctAnswerCounter += 1;
                           userAnswer = false;
                           break;
@@ -75,6 +75,27 @@ if (readyToPlay.toUpperCase() === "N" || readyToPlay.toUpperCase() ==="NO") {
                           alert("oops! Let's try that again.  Please enter either yes or no.");
                         }
                 }
+
+            userAnswer = true; //fourth question.  exception testing for non yes/no answers.
+
+            while (userAnswer) {
+                  question = prompt("Here's the fourth question (and MOST important\) question: Are you having fun?");
+                        if (question.toUpperCase() === "Y" || question.toUpperCase() ==="YES") {
+                            console.log('userName ' + "correctly said yes.");
+                            alert("I'm so glad to hear it! Just two more question to go...");
+                            correctAnswerCounter += 1;
+                            userAnswer = false;
+                            break;
+                          } else if (question.toUpperCase() ==="N" || question.toUpperCase() ==="NO"){
+                            console.log('userName ' + "incorrectly said no.");
+                            alert("Aww, that's too bad. You're almost done. Just two questions to go...");
+                            userAnswer = false;
+                            break;
+                          } else {
+                            alert("oops! Let's try that again.  Please enter either yes or no.");
+                          }
+                  }
+
 
           var myNum = 2;    //fourth question.  keep guessing until they get it right.
           var keepRunning = true;
@@ -144,7 +165,8 @@ if (readyToPlay.toUpperCase() === "N" || readyToPlay.toUpperCase() ==="NO") {
                   }
                 }
 
-          var finalMessage = "You got " + correctAnswerCounter + " correct out of 5. " +finalCounter() ;
+          var finalMessage = "You got " + correctAnswerCounter + " correct out of 6. " +finalCounter() ;
+            //the "out of 5" can be a variable counting array.length, once questions are set up in for loop.
 
             alert(finalMessage);
 
