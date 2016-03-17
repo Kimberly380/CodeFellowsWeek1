@@ -129,32 +129,27 @@ if (readyToPlay.toUpperCase() === "N" || readyToPlay.toUpperCase() ==="NO") {
             }
 
 
-            alert("Ok, final question...")
-            function countryFunction() {
-              var countryFormat = prompt("What European country did I live in before I moved to Oregon?");
-              return countryFormat.toLowerCase();
-            }
+            var podcastArray =["ted radio hour", "serial", "radiolab", "fresh air", "this american life", "freakonomics radio"];
+            var podcastAnswer= [];
+            var countAttempts=0;
 
-            var country = countryFunction();
+            alert("Ok, final question...");
+            var userResponse = prompt("Name a podcast I listen to.");
 
-            switch(country) {
-              case "france":
-                alert("Nope, a little too far north. Sorry.");
-                break;
-              case "spain":
-                  alert("Wow! You got it! Viva Espana!");
-                  correctAnswerCounter += 1;
-                  break;
-                case "germany":
-                  alert("Nope, Germany is way too cold!");
-                  break;
-                default:
-                  alert("Nope, it was Spain.  Viva Espana!");
-                  break;
-            }
+              for(var i = 0; i < 4 ; i++) {
+                  userResponse;
+                  if(podcastArray.indexOf(userResponse.toLowerCase())>=0) {
+                     alert("Yup! That's one of them.\n");
+                     userResponse=prompt("See if you can guess another one.");
+                     correctAnswerCounter += 1;
+                  } else {
+                    userResponse=prompt("Nope, try again.");
+                     }
+                  }
+             alert("Ok, that's enough of that! Let's see how you did.");
+
 
             console.log(correctAnswerCounter);
-
 
             var finalCounter = function() {
                  switch(true) {
