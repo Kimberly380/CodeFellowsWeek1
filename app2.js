@@ -19,14 +19,13 @@ if (readyToPlay.toUpperCase() === "N" || readyToPlay.toUpperCase() ==="NO") {
         userAnswer = true;  //first question.  exception testing for non yes/no answers.
 
         while (userAnswer) {
-                question = prompt("First Question: Am I originally from Portland?");
-                      if (question.toUpperCase() === "Y" || question.toUpperCase() === "YES") {
-                          console.log(userName + " incorrectly said yes.");
+                questionPortland = prompt("First Question: Am I originally from Portland?");
+                console.log("user answer to portland: " + questionPortland+ " correct answer = N")
+                      if (questionPortland.toUpperCase() === "Y" || questionPortland.toUpperCase() === "YES") {
                           alert("No, sorry that's incorrect. I'm not from Portland but have lived here for 6 years. Let's move on.");
                           userAnswer = false;
                           break;
-                        } else if (question.toUpperCase() ==="N" || question.toUpperCase() ==="NO"){
-                          console.log(userName  + "correctly said no.");
+                        } else if (questionPortland.toUpperCase() ==="N" || questionPortland.toUpperCase() ==="NO"){
                           alert("Yes, that's correct! I'm actually from Atlanta. Next Question...");
                           correctAnswerCounter += 1;
                           userAnswer = false;
@@ -39,14 +38,13 @@ if (readyToPlay.toUpperCase() === "N" || readyToPlay.toUpperCase() ==="NO") {
           userAnswer = true;  //second question.  exception testing for non yes/no answers.
 
           while (userAnswer) {
-                question = prompt("Do I love chocolate?");
-                      if (question.toUpperCase() === "Y" || question.toUpperCase() === "YES") {
-                          console.log('userName ' + "incorrectly said yes.");
+                questionChocolate = prompt("Do I love chocolate?");
+                console.log("user answer to chocolate: " + questionChocolate + " Correct Answer = N");
+                      if (questionChocolate.toUpperCase() === "Y" || questionChocolate.toUpperCase() === "YES") {
                           alert("Sorry, wrong guess. I don't like chocolate much at all! Let's move on to the next question.");
                           userAnswer = false;
                           break;
-                        } else if (question.toUpperCase() ==="N" || question.toUpperCase() ==="NO"){
-                         console.log('userName ' + "correctly said no.");
+                        } else if (questionChocolate.toUpperCase() ==="N" || questionChocolate.toUpperCase() ==="NO"){
                           alert("That's correct! Not a fan of chocolate. Let's move on to the next question.");
                           correctAnswerCounter += 1;
                           userAnswer = false;
@@ -59,14 +57,13 @@ if (readyToPlay.toUpperCase() === "N" || readyToPlay.toUpperCase() ==="NO") {
           userAnswer = true; //third question.  exception testing for non yes/no answers.
 
           while (userAnswer) {
-                question = prompt("Third Question: Can I run a 6 minute mile?");
-                      if (question.toUpperCase() === "Y" || question.toUpperCase() ==="YES") {
-                          console.log('userName ' + "incorrectly said yes.");
+                questionMile = prompt("Third Question: Can I run a 6 minute mile?");
+                console.log("user answer to 6 minute mile: " + questionMile + " Correct answer = N")
+                      if (questionMile.toUpperCase() === "Y" || questionMile.toUpperCase() ==="YES") {
                           alert("Of course I can't! Dont be silly!");
                           userAnswer = false;
                           break;
-                        } else if (question.toUpperCase() ==="N" || question.toUpperCase() ==="NO"){
-                          console.log('userName ' + "correctly said no.");
+                        } else if (questionMile.toUpperCase() ==="N" || questionMile.toUpperCase() ==="NO"){
                           alert("Of course I can't...you know me well!");
                           correctAnswerCounter += 1;
                           userAnswer = false;
@@ -76,34 +73,14 @@ if (readyToPlay.toUpperCase() === "N" || readyToPlay.toUpperCase() ==="NO") {
                         }
                 }
 
-            userAnswer = true; //fourth question.  exception testing for non yes/no answers.
-
-            while (userAnswer) {
-                  question = prompt("Here's the fourth (and MOST important\) question: Are you having fun?");
-                        if (question.toUpperCase() === "Y" || question.toUpperCase() ==="YES") {
-                            console.log('userName ' + "correctly said yes.");
-                            alert("I'm so glad to hear it! Just two more question to go...");
-                            correctAnswerCounter += 1;
-                            userAnswer = false;
-                            break;
-                          } else if (question.toUpperCase() ==="N" || question.toUpperCase() ==="NO"){
-                            console.log('userName ' + "incorrectly said no.");
-                            alert("Aww, that's too bad. You're almost done. Just two questions to go...");
-                            userAnswer = false;
-                            break;
-                          } else {
-                            alert("oops! Let's try that again.  Please enter either yes or no.");
-                          }
-                  }
-
-
-          var myNum = 3;    //fourth question.  keep guessing until they get it right.
+          var myNum = 3;
           var keepRunning = true;
           var guessNumber
-          var guessCounter = 0  //limit them to 3 guesses (known bug.  need to fix three-guess functionality.)
+          var guessCounter = 0
 
           while (keepRunning && guessCounter < 4 ) {
               guessNumber = parseInt(prompt("Guess my favorite number between 1 and 100"));
+              console.log("user answer to guess number: " + guessNumber + ".  pass # :"+guessCounter + " correct answer ="+myNum)
               if (isNaN(guessNumber)){
                 guessCounter +=1;
                 alert("Don't be cheeky! This is a NUMBER guessing game. Input a NUMBER, 1 to 100.");
@@ -114,33 +91,31 @@ if (readyToPlay.toUpperCase() === "N" || readyToPlay.toUpperCase() ==="NO") {
                   break;
                 }
                   else if (guessNumber > myNum) {
-                  alert("Sorry, too high! Guess again.");
                   guessCounter += 1;
+                  alert("Sorry, too high! You have " + (4 - guessCounter) + " guesses left...");
                 } else if (guessNumber < myNum) {
-                  alert("Sorry, too low! Guess again.");
                   guessCounter +=1;
+                  alert("Sorry, too low! You have " + (4 - guessCounter) + " guesses left...");
                 } else {
                   alert("Oops, that's not a number between 1 and 10");
                   }
-              console.log("number of guess " + guessCounter);
-              if (guessCounter === 4){
+            if (guessCounter === 4){
                 alert("I'm afraid you reached your fourth guess. We have to move on.");
               }
             }
 
 
             var podcastArray =["ted radio hour", "serial", "radiolab", "fresh air", "this american life", "freakonomics radio"];
-            var podcastAnswer= [];
-            var countAttempts=0;
 
             alert("Ok, final question...");
             var userResponse = prompt("Name a podcast I listen to.");
+            console.log("Correct podecast list= " +podcastArray);
 
-              for(var i = 0; i < 4 ; i++) {
+              for(var i = 0; i < 2 ; i++) {
                   userResponse;
+                  console.log("user response to podcast guess" + userResponse +". Pass #: " + i);
                   if(podcastArray.indexOf(userResponse.toLowerCase())>=0) {
-                     alert("Yup! That's one of them.\n");
-                     userResponse=prompt("See if you can guess another one.");
+                     userResponse=prompt("Yup! That's one of them.\nSee if you can guess one more.");
                      correctAnswerCounter += 1;
                   } else {
                     userResponse=prompt("Nope, try again.");
@@ -149,7 +124,7 @@ if (readyToPlay.toUpperCase() === "N" || readyToPlay.toUpperCase() ==="NO") {
              alert("Ok, that's enough of that! Let's see how you did.");
 
 
-            console.log(correctAnswerCounter);
+            console.log("number of correct answers "+correctAnswerCounter);
 
             var finalCounter = function() {
                  switch(true) {
@@ -157,14 +132,14 @@ if (readyToPlay.toUpperCase() === "N" || readyToPlay.toUpperCase() ==="NO") {
                         return "I guess we should grab a coffee and get to know each other better.";
                         break;
                     case (correctAnswerCounter >3):
-                        return "You know me better than I know myself!";
+                        return "It's like you know me better than I know myself!";
                         break;
                     default:
                         return "Not bad. It was great to meet you! Enjoy your day!";
                   }
                 }
 
-          var finalMessage = userName + ", you got " + correctAnswerCounter + " correct out of 6. " +finalCounter() ;
+          var finalMessage = userName + ", you got " + correctAnswerCounter + " correct answers out of 5. " +finalCounter() ;
             //the "out of 5" can be a variable counting array.length, once questions are set up in for loop.
 
             alert(finalMessage);
