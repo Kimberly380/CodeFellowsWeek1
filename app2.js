@@ -1,77 +1,71 @@
 
 //get to know user and send personalized message
 var userName = prompt("Hi. Welcome to my site! What's your name?");
-console.log("User name is " + userName);
+
 
 //introduce game and ask for user participation.  If user refuses, no further questions will be asked.
-//note: this needs to be updated to catch non-yes/no answers.  Leave for now...known bug!
+//note: this needs to be part of the below array/loop. will fix tomorrow.
 var readyToPlay = prompt("Hi " + userName + "!  Are you ready to play a guessing game about me (Y/N)?")
 
 if (readyToPlay.toUpperCase() === "N" || readyToPlay.toUpperCase() ==="NO") {
-  console.log(userName + " refuses to play.");
+
   alert("Oh well, I guess you'll never know who I am.  Have a nice day!");
 
     } else {
-        console.log(userName + " is ready to play.");
 
-        correctAnswerCounter = 0 //this is to count correct answers
 
-        userAnswer = true;  //first question.  exception testing for non yes/no answers.
 
-        while (userAnswer) {
-                questionPortland = prompt("First Question: Am I originally from Portland?");
-                console.log("user answer to portland: " + questionPortland+ " correct answer = N")
-                      if (questionPortland.toUpperCase() === "Y" || questionPortland.toUpperCase() === "YES") {
-                          alert("No, sorry that's incorrect. I'm not from Portland but have lived here for 6 years. Let's move on.");
-                          userAnswer = false;
-                          break;
-                        } else if (questionPortland.toUpperCase() ==="N" || questionPortland.toUpperCase() ==="NO"){
-                          alert("Yes, that's correct! I'm actually from Atlanta. Next Question...");
-                          correctAnswerCounter += 1;
-                          userAnswer = false;
-                          break;
-                        } else {
-                          alert("oops! Let's try that again.  Please enter either yes or no.");
-                        }
+//Here I define the generic format for each question and its properties.
+function Question (question, correctAnswer, incorrectAnswer, correctAnswerResponse, incorrectAnswerResponse, undefinedResponse) {
+    this.question = question;
+    this.correctAnswer = correctAnswer;
+    this.incorrectAnswer = incorrectAnswer;
+    this.correctAnswerResponse = correctAnswerResponse;
+    this.incorrectAnswerResponse = incorrectAnswerResponse;
+
+}
+
+//put into variable a response that will always be the same.
+var undefinedResponse = "Oops! Let's try that again.  Please enter either Y/N.";
+
+//set up question details in variables
+
+  var question1 =   new Question("First Question: Am I originally from Portland? (Y/N)","N","Y","Yes, that's correct! I'm actually from Atlanta. Next Question...","No, sorry that's incorrect. \
+  I'm not from Portland but have lived here for 6 years. Let's move on.");
+
+  var question2 =  new Question("Do I love chocolate?","N","Y","That's correct! Not a fan of chocolate. Let's move on to the next question.","Sorry, wrong guess. I don't like chocolate \
+  much at all! Let's move on to the next question.");
+
+  var question3 = new Question("Third Question: Can I run a 6 minute mile?","N", "Y", "Of course I can't...you know me well!","Of course I can't! Dont be silly!");
+
+//estabish object with the following properties: [question asked, correct answer, correct answer response, incorrect answer response, wrong format/undefined response]
+var allQuestions = [question1, question2, question3];
+var correctAnswerCounter = 0
+var goodResponse = true;
+function askQuestion (num) {
+    prompt(allQuestions[num].question);
+    }
+
+
+      for(var i = 0; i < allQuestions.length; i++){
+          goodResponse = true;
+        while (goodResponse){
+          askQuestion = prompt(allQuestions[i].question);
+          if (askQuestion.toUpperCase() === allQuestions[i].correctAnswer ) {
+                alert(allQuestions[i].correctAnswerResponse);
+                correctAnswerCounter += 1;
+                goodResponse=false;
+              } else if (askQuestion.toUpperCase() === allQuestions[i].incorrectAnswer){
+                alert(allQuestions[i].incorrectAnswerResponse);
+                goodResponse=false;
+              } else {
+                    alert(undefinedResponse);
+                      }
+                  }
                 }
 
-          userAnswer = true;  //second question.  exception testing for non yes/no answers.
+//HAVEN'T HAD TIME TO INPUT THE REMAINING QUESTION INTO THE ABOVE ARRAY/LOOP.  TOMORROW!!
 
-          while (userAnswer) {
-                questionChocolate = prompt("Do I love chocolate?");
-                console.log("user answer to chocolate: " + questionChocolate + " Correct Answer = N");
-                      if (questionChocolate.toUpperCase() === "Y" || questionChocolate.toUpperCase() === "YES") {
-                          alert("Sorry, wrong guess. I don't like chocolate much at all! Let's move on to the next question.");
-                          userAnswer = false;
-                          break;
-                        } else if (questionChocolate.toUpperCase() ==="N" || questionChocolate.toUpperCase() ==="NO"){
-                          alert("That's correct! Not a fan of chocolate. Let's move on to the next question.");
-                          correctAnswerCounter += 1;
-                          userAnswer = false;
-                          break;
-                        } else {
-                          alert("oops! Let's try that again.  Please enter either yes or no.");
-                        }
-                }
-
-          userAnswer = true; //third question.  exception testing for non yes/no answers.
-
-          while (userAnswer) {
-                questionMile = prompt("Third Question: Can I run a 6 minute mile?");
-                console.log("user answer to 6 minute mile: " + questionMile + " Correct answer = N")
-                      if (questionMile.toUpperCase() === "Y" || questionMile.toUpperCase() ==="YES") {
-                          alert("Of course I can't! Dont be silly!");
-                          userAnswer = false;
-                          break;
-                        } else if (questionMile.toUpperCase() ==="N" || questionMile.toUpperCase() ==="NO"){
-                          alert("Of course I can't...you know me well!");
-                          correctAnswerCounter += 1;
-                          userAnswer = false;
-                          break;
-                        } else {
-                          alert("oops! Let's try that again.  Please enter either yes or no.");
-                        }
-                }
 
           var myNum = 3;
           var keepRunning = true;
