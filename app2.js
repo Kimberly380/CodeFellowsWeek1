@@ -1,22 +1,22 @@
-
-//get to know user and send personalized message
-var userName = prompt("Hi. Welcome to my site! What's your name?");
-
-
-//introduce game and ask for user participation.  If user refuses, no further questions will be asked.
-//note: this needs to be part of the below array/loop. will fix tomorrow.
-var readyToPlay = prompt("Hi " + userName + "!  Are you ready to play a guessing game about me (Y/N)?")
-
-if (readyToPlay.toUpperCase() === "N" || readyToPlay.toUpperCase() ==="NO") {
-
-  alert("Oh well, I guess you'll never know who I am.  Have a nice day!");
-
-    } else {
+//
+// //get to know user and send personalized message
+// var userName = prompt("Hi. Welcome to my site! What's your name?");
+//
+//
+// //introduce game and ask for user participation.  If user refuses, no further questions will be asked.
+// //note: this needs to be part of the below array/loop. will fix tomorrow.
+// var readyToPlay = prompt("Hi " + userName + "!  Are you ready to play a guessing game about me (Y/N)?")
+//
+// if (readyToPlay.toUpperCase() === "N" || readyToPlay.toUpperCase() ==="NO") {
+//
+//   alert("Oh well, I guess you'll never know who I am.  Have a nice day!");
+//
+//     } else {
 
 
 
 //Here I define the generic format for each question and its properties.
-function Question (question, correctAnswer, incorrectAnswer, correctAnswerResponse, incorrectAnswerResponse, undefinedResponse) {
+function Question (question, correctAnswer, incorrectAnswer, correctAnswerResponse, incorrectAnswerResponse) {
     this.question = question;
     this.correctAnswer = correctAnswer;
     this.incorrectAnswer = incorrectAnswer;
@@ -36,15 +36,17 @@ var undefinedResponse = "Oops! Let's try that again.  Please enter either Y/N.";
   var question2 =  new Question("Do I love chocolate?","N","Y","That's correct! Not a fan of chocolate. Let's move on to the next question.","Sorry, wrong guess. I don't like chocolate \
   much at all! Let's move on to the next question.");
 
-  var question3 = new Question("Third Question: Can I run a 6 minute mile?","N", "Y", "Of course I can't...you know me well!","Of course I can't! Dont be silly!");
+  // var question3 = new Question("Third Question: Can I run a 6 minute mile?","N", "Y", "Of course I can't...you know me well!","Of course I can't! Dont be silly!");
+
+
+
+  //var question4 = new Question("Guess my favorite number between 1 and 100", parseInt(3), notThree, "Yay! You got it!", guessNumber());
+
 
 //estabish object with the following properties: [question asked, correct answer, correct answer response, incorrect answer response, wrong format/undefined response]
 var allQuestions = [question1, question2, question3];
 var correctAnswerCounter = 0
-var goodResponse = true;
-function askQuestion (num) {
-    prompt(allQuestions[num].question);
-    }
+var goodResponse;
 
 
       for(var i = 0; i < allQuestions.length; i++){
@@ -69,34 +71,36 @@ function askQuestion (num) {
 
           var myNum = 3;
           var keepRunning = true;
-          var guessNumber
-          var guessCounter = 0
+          var guessNumber;
+          var guessCounter = 0;
 
-          while (keepRunning && guessCounter < 4 ) {
+//function guessNumber() {
+        while (keepRunning && guessCounter < 4 ) {
               guessNumber = parseInt(prompt("Guess my favorite number between 1 and 100"));
-              console.log("user answer to guess number: " + guessNumber + ".  pass # :"+guessCounter + " correct answer ="+myNum)
+
               if (isNaN(guessNumber)){
                 guessCounter +=1;
                 alert("Don't be cheeky! This is a NUMBER guessing game. Input a NUMBER, 1 to 100.");
-              } else if (guessNumber === myNum){
-                  alert("Yay! You got it!");
-                  correctAnswerCounter +=1;
-                  keepRunning = false;
-                  break;
-                }
-                  else if (guessNumber > myNum) {
+              } else if (guessNumber ===myNum){
+                alert("Yay! You got it!");
+                correctAnswerCounter +=1;
+                keepRunning = false;
+                break;
+
+              }
+                else if (guessNumber > myNum) {
                   guessCounter += 1;
                   alert("Sorry, too high! You have " + (4 - guessCounter) + " guesses left...");
-                } else if (guessNumber < myNum) {
+                } else (guessNumber < myNum) {
                   guessCounter +=1;
                   alert("Sorry, too low! You have " + (4 - guessCounter) + " guesses left...");
-                } else {
-                  alert("Oops, that's not a number between 1 and 10");
-                  }
+                }
+
             if (guessCounter === 4){
                 alert("I'm afraid you reached your fourth guess. We have to move on.");
               }
             }
+    //   }
 
 
             var podcastArray =["ted radio hour", "serial", "radiolab", "fresh air", "this american life", "freakonomics radio"];
@@ -139,4 +143,4 @@ function askQuestion (num) {
             alert(finalMessage);
 
 
-        } //close of readyToPlay if statement
+        // } //close of readyToPlay if statement
